@@ -47,7 +47,7 @@
   </main>
 
   <footer>
-    <a href="https://github.com/sami-epfl" target="_blank" rel="noopener">github.com/sami-epfl</a>
+    <a href="https://github.com/sami-epfl" rel="noopener">github.com/sami-epfl</a>
   </footer>
 
   <script>
@@ -57,7 +57,7 @@
     const grid = document.getElementById("grid");
     LANDING_CONFIG.courses.forEach(function(c) {
       grid.insertAdjacentHTML("beforeend", `
-        <a class="course-card" href="${c.url}" target="_blank" rel="noopener">
+        <a class="course-card" href="${c.url}" rel="noopener">
           <div class="card-info">
             <div class="q-label">${c.code}</div>
             <div class="q-text" style="margin-bottom:0">${c.title}</div>
