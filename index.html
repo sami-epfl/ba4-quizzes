@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BA4 Quizzes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <script>
+    LANDING_CONFIG._useLocal = location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1";
+    var _base = LANDING_CONFIG._useLocal ? LANDING_CONFIG.engineLocal : LANDING_CONFIG.engineCdn;
+    var _link = document.createElement("link");
+    _link.rel = "stylesheet"; _link.href = _base + "/style.css";
+    document.head.appendChild(_link);
+  </script>
+  <style>
+    .course-card {
+      text-decoration: none; color: inherit;
+      display: flex; align-items: center; gap: 1.5rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      margin-bottom: .9rem;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      animation: fadeUp .3s ease;
+    }
+    .course-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,169,110,.1); }
+    .card-info { flex: 1; }
+    .card-desc { font-size: .85rem; color: var(--text-muted); line-height: 1.55; margin-top: .35rem; }
+    footer { position: relative; z-index: 1; padding: 1.5rem; font-size: .75rem; color: var(--text-muted); }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 540px) {
+      .course-card { flex-direction: column; align-items: flex-start; gap: .8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1 id="site-title"></h1>
+      <div class="subtitle" id="site-subtitle"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <footer>
+    <a href="https://github.com/sami-epfl" target="_blank" rel="noopener">github.com/sami-epfl</a>
+  </footer>
+
+  <script>
+    document.getElementById("site-title").textContent = LANDING_CONFIG.title;
+    document.getElementById("site-subtitle").textContent = LANDING_CONFIG.subtitle;
+
+    const grid = document.getElementById("grid");
+    LANDING_CONFIG.courses.forEach(function(c) {
+      grid.insertAdjacentHTML("beforeend", `
+        <a class="course-card" href="${c.url}" target="_blank" rel="noopener">
+          <div class="card-info">
+            <div class="q-label">${c.code}</div>
+            <div class="q-text" style="margin-bottom:0">${c.title}</div>
+          </div>
+          <span class="btn-primary" style="white-space:nowrap;flex-shrink:0">Open</span>
+        </a>
+      `);
+    });
+  </script>
+</body>
+</html>
