@@ -5,6 +5,11 @@ const LANDING_CONFIG = {
   engineLocal: "../ba4-quiz-engine",
   courses: [
     {
+      code: "COM-202",
+      title: "Signal Processing",
+      url: "https://sami-epfl.github.io/ba4-com202-quiz/",
+    },
+    {
       code: "CS-202",
       title: "Computer Systems",
       url: "https://sami-epfl.github.io/ba4-cs202-quiz/",
