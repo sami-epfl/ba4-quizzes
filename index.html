@@ -29,9 +29,6 @@
     footer { position: relative; z-index: 1; padding: 1.5rem; font-size: .75rem; color: var(--text-muted); }
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
-    @media (max-width: 540px) {
-      .course-card { flex-direction: column; align-items: flex-start; gap: .8rem; }
-    }
   </style>
 </head>
 <body>
@@ -62,7 +59,7 @@
             <div class="q-label">${c.code}</div>
             <div class="q-text" style="margin-bottom:0">${c.title}</div>
           </div>
-          <span class="btn-primary" style="white-space:nowrap;flex-shrink:0">Open</span>
+          <span style="color:var(--accent);font-size:1.2rem;flex-shrink:0">›</span>
         </a>
       `);
     });
